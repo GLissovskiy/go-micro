@@ -1,4 +1,6 @@
 # VSCode
 *.code-workspace
 
+*.gitconfig.work
+
 _src/
