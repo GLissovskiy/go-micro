@@ -1,9 +1,11 @@
 package event
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
+	"net/http"
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
@@ -119,5 +121,33 @@ func handlePayload(payload Payload) {
 }
 
 func logEvent(entry Payload) error {
+	jsonData, _ := json.MarshalIndent(entry, "", "\t")
+
+	loggerServiceURL := "http://logger-service:8080/log"
+
+	request, err := http.NewRequest("POST", loggerServiceURL, bytes.NewBuffer(jsonData))
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+
+	request.Header.Set("Content-Type", "application/json")
+
+	client := &http.Client{}
+
+	response, err := client.Do(request)
+	if err != nil {
+		log.Println(err)
+		return err
+	}
+
+	defer response.Body.Close()
+
+	if response.StatusCode != http.StatusAccepted {
+		log.Println(err)
+		return err
+	}
+
 	return nil
+
 }
