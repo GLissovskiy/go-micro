@@ -160,7 +160,7 @@ func (app *Config) sendMail(w http.ResponseWriter, msg MailPayload) {
 
 	// call the mail service
 
-	mailServiceURL := "http://mail-service:8080/send"
+	mailServiceURL := "http://mailer-service:8080/send"
 
 	// post to mail service
 
