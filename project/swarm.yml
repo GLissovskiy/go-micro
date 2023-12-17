@@ -7,7 +7,7 @@ services:
       - "8090:8080"
     deploy:
       mode: replicated
-      relpicas: 1
+      replicas: 1
 
   listener-service:
     image: legion013/listener-service:1.0.0
@@ -47,7 +47,7 @@ services:
   rabbitmq:
     image: 'rabbitmq:3.9-alpine'
     deploy: 
-      mode: glabal
+      mode: global
   
   mailhog:
     image: 'mailhog/mailhog:latest'
@@ -60,7 +60,8 @@ services:
     image: 'mongo:4.2.17-bionic'
     ports:
       - "27017:27017"
-    deploy: global
+    deploy: 
+      mode: global
     environment:
       MONGO_INITDB_DATABASE: logs
       MONGO_INITDB_ROOT_USERNAME: admin
