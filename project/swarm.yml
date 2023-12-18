@@ -16,7 +16,7 @@ services:
       replicas: 1
 
   authentication-service:
-    image: legion013/authentication-service
+    image: legion013/authentication-service:1.0.0
     deploy: 
       mode: replicated
       replicas: 1
@@ -24,13 +24,13 @@ services:
       DSN: "host=postgres port=5432 user=postgres password=password dbname=users sslmode=disable timezone=UTC connect_timeout=5"
 
   logger-service:
-    image: legion013/logger-service
+    image: legion013/logger-service:1.0.0
     deploy: 
       mode: replicated
       replicas: 1
 
   mailer-service:
-    image: legion013/mail-service
+    image: legion013/mail-service:1.0.0
     deploy: 
       mode: replicated
       replicas: 1
