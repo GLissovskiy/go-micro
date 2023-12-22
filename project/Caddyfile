@@ -28,6 +28,6 @@ localhost:8088 {
 	reverse_proxy  http://front-end:8081
 }
 
-backend:8088 {
+backend:8089 {
 	reverse_proxy http://broker-service:8080
 }

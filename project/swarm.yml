@@ -19,18 +19,24 @@ services:
     deploy:
       mode: replicated
       replicas: 1
+    ports:
+      - "8088:8081"
 
   broker-service:
     image: legion013/broker-service:1.0.1
     deploy:
       mode: replicated
       replicas: 1
+    ports:
+      - "8089:8080"
+
 
   listener-service:
     image: legion013/listener-service:1.0.0
     deploy: 
       mode: replicated
       replicas: 1
+
 
   authentication-service:
     image: legion013/authentication-service:1.0.0
