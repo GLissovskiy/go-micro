@@ -15,12 +15,14 @@ services:
       - caddy_config:/config
 
   front-end:
-    image: legion013/front-end:1.0.0
+    image: legion013/front-end:1.0.1
     deploy:
       mode: replicated
       replicas: 1
     ports:
       - "8088:8081"
+    environment:
+      BROKER_URL: "http://backend:8089"
 
   broker-service:
     image: legion013/broker-service:1.0.1
