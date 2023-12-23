@@ -69,7 +69,7 @@
             headers: headers,
         }
 
-        fetch("http:\/\/127.0.0.1:8090/handle", body)
+        fetch({{print .BrokerURL "/handle"}}, body)
         .then((response) => response.json())
         .then((data) => {
             console.log("Data: ", data);
@@ -105,7 +105,9 @@
         }
 
 
-        fetch("http:\/\/127.0.0.1:8090/handle", body)
+        
+        //fetch("http:\/\/127.0.0.1:8090/handle", body)
+        fetch({{print .BrokerURL "/handle"}}, body)
         .then((response) => response.json())
         .then((data) => {
             console.log("Data: ", data);
@@ -142,7 +144,9 @@
         }
 
 
-        fetch("http:\/\/127.0.0.1:8090/log-grpc", body)
+        //fetch("http:\/\/127.0.0.1:8090/log-grpc", body)
+        fetch({{print .BrokerURL "/log-grpc"}}, body)
+        
         .then((response) => response.json())
         .then((data) => {
             console.log("Data: ", data);
@@ -179,7 +183,8 @@
             headers: headers,
         }
 
-        fetch("http:\/\/127.0.0.1:8090/handle", body)
+        //fetch("http:\/\/127.0.0.1:8090/handle", body)
+        fetch({{print .BrokerURL "/handle"}}, body)
         .then((response) => response.json())
         .then((data) => {
             console.log("Data: ", data);
@@ -202,7 +207,8 @@
             method: 'POST',
         }
 
-        fetch("http:\/\/127.0.0.1:8090", body)
+        //fetch("http:\/\/127.0.0.1:8090", body)
+        fetch({{.BrokerURL}}, body)
         .then((response) => response.json())
         .then((data) => {
             console.log("Data: ", data);
