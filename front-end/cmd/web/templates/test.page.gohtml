@@ -107,6 +107,7 @@
 
         
         //fetch("http:\/\/127.0.0.1:8090/handle", body)
+        
         fetch({{print .BrokerURL "/handle"}}, body)
         .then((response) => response.json())
         .then((data) => {
