@@ -3,7 +3,7 @@ version: '3'
 services:
 
   caddy:
-    image: legion013/micro-caddy-production:1.0.1
+    image: legion013/micro-caddy-production:1.0.2
     deploy:
       mode: replicated
       replicas: 1
@@ -25,7 +25,7 @@ services:
     ports:
       - "8088:8081"
     environment:
-      BROKER_URL: "http://broker.javalab.top"
+      BROKER_URL: "https://broker.javalab.top"
 
   broker-service:
     image: legion013/broker-service:1.0.1
