@@ -14,14 +14,7 @@ spec:
     spec:
       containers:
       - name: mailhog
-        image: "mailhog/mailhog:latest"
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        image: "mailhog/mailhog"
         ports:
           - containerPort: 1025
           - containerPort: 8025
@@ -35,7 +28,7 @@ metadata:
 spec:
   selector:
     app: mailhog
-  ports: 
+  ports:
     - protocol: TCP
       name: smtp-port
       port: 1025
