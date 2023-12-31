@@ -17,7 +17,7 @@ spec:
         image: "legion013/front-end:1.0.1"
         env: 
           - name: BROKER_URL
-            value: "https://broker.javalab.top"
+            value: "http://broker.javalab.top"
         ports:
           - containerPort: 8081 
 
